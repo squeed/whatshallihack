@@ -1,0 +1,103 @@
+INTRO = [
+	"I'm going to hack",
+]
+
+BRIDGE = [
+	"an",
+	"some",
+]
+
+SOCIOPOLITICAL =  [
+	'open-source',
+	'free culture',
+	'freegan',
+	'vegan',
+	'vegetarian',
+	'free-range',
+	'communist',
+	'anarchist',
+	'locally sourced',
+	'artisanal',
+	'handcrafted',
+	'microbrewed',
+	'fair trade',
+	'sex-positive',
+	'kink-friendly',
+	'queer-friendly',
+	'autonomous',
+	'energy neutral',
+	'holistic',
+	'vintage-inspired',
+	'Soviet-inspired',
+	'jailbroken',
+	'hacktivist',
+	'indie',
+]
+
+PHYSICAL = [
+'laser-cut',
+'laser-etched',
+'3D-printed',
+'steampunk',
+'cyberpunk',
+'kinetic',
+'clockwork',
+'steam-driven',
+'solar-powered',
+'leather',
+'hand-tooled',
+'acrylic',
+'touch-screen',
+'programmable',
+'papercraft',
+'vinyl',
+'Arduino-powered',
+'iOS',
+'tweeting',
+'Facebook-enabled',
+'location-aware',
+]
+
+ITEM = [
+'robot',
+'cyborg',
+'3D printer',
+('legwarmers', True),
+('armwarmers', True),
+'beer cozy',
+'Arduino',
+'shrug',
+'messenger bag',
+'tote bag',
+'case mod',
+'computer',
+'vehicle',
+'glider',
+'ring',
+'spacesuit',
+'evening gown',
+'bicycle',
+'tricycle',
+'submarine',
+'generator',
+'street art',
+'guitar',
+'ukulele',
+'bow tie',
+]
+
+RESPONSES = [
+"You going to sell it on Etsy or what?",
+"Then you're going to submit it to Boing Boing, right?",
+"That will kick ass at Burning Man.",
+"Right on, right on.",
+"What the hell is that supposed to mean?",
+"For Mother's Day? Are you sure?",
+"That's cool, bro.",
+"Whoa.",
+"No shit.",
+"Me too!",
+"That'll show Washington.",
+]
+
+
