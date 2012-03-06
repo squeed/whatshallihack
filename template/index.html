@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body{
+	background-color:#ffba4b;
+	font-family: 'Cutive', serif;
+}
+div.megawrapper{
+	width: 439px;
+	height: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
+div.wrapper{
+	background:url('static/hackbg01.png') no-repeat;
+	width: 439px;
+	height:600px;
+	margin: 0 auto;
+}
+div.text{
+	text-align:left;
+}
+div.hacktext{
+	width: 340px;
+	height: 240px;
+	position:relative;
+	left:55px;
+	top:25px;
+	font-size: 1em;
+}
+div.responsetext {
+	width: 100px;
+	height: 100px;
+	position:relative;
+	left: 160px;
+	top: 110px;
+	font-size: .7em;
+}
+ul.hackvars{
+	font-size:2em;
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+ul.hackvars li{
+	padding:0;
+	margin:0;
+	color:#000;
+}
+div.button{
+	position:relative;
+	font-size:.7em;
+}
+div.nextbutton {
+	top:180px;
+	left:-2px;
+}
+div.tweetbutton{
+	top:210px;
+	left:-5px;
+}
+div.button a{
+	text-decoration:none;
+	color:#000;
+}
+</style>
+
+<script type=text/javascript src='static/jquery-1.7.1.min.js'> </script>
+
+<script type=text/javascript>
+var onupdate = function(data){	
+	targets = ['intro', 'response'];
+	for (var i =0; i < targets.length; i+= 1){
+		target = targets[i];
+		$("#"+target).html(data[target]);
+	}
+
+	$("#hackvars").html("");
+	words = data['hackvars'];
+	for (var i = 0; i < words.length; i+= 1){
+		$("#hackvars").append("<li>" + words[i] + "</li>");
+	}
+	
+	var tweet_components = {
+		'hashtags': "burner",
+		'original_referer': 'http://www.code.caseyc.net/whatshallihack/',
+		'source': 'tweetbutton',
+		'text': data['phrase'] + ". What will you hack next?",
+		'url': 'http://www.code.caseyc.net/whatshallihack/'
+	}
+
+	var base_url = 'https://twitter.com/intent/tweet?';
+	
+	var comps = []	
+	for (var key in tweet_components){
+		comps.push(encodeURIComponent(key) + '=' + encodeURIComponent(tweet_components[key]));
+	}
+	base_url = base_url + comps.join('&');
+
+	$('#tweetlink').attr('href', base_url)		
+
+
+}
+
+function smurf(){
+	$.ajax({
+		url: 'index.cgi?ajax=1',
+		success: onupdate,
+	})	
+}
+
+$(document).ready(smurf);
+
+
+</script>
+
+</head>
+<body>
+	<div class="megawrapper">
+	<div class="wrapper">
+		<div class="hacktext text">
+
+	<span id=intro> </span>
+	<ul class="hackvars" id="hackvars">
+	</ul>
+	</div>
+	<div class="responsetext text">
+		<span id="response"> </span>	
+		</div>
+		<div class="nextbutton button">
+			<a href="#" onclick='smurf();'>Hack something else</a>
+			</div>
+			<div class="tweetbutton button">
+<!-- <a href="https://twitter.com/share" 
+	class="twitter-share-button" 
+	data-url="http://www.code.caseyc.net/whatshallihack/"
+	data-text="DATA TEXT DATA TEXT"
+	data-count="none"
+	data-hashtags="burner">
+	Tweet2</a>-->
+		<a id="tweetlink" href='foo' target='_blank' >Tweet!</a>
+				
+			</div>
+		</div>
+	</div>
+	<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+
+
+</body>
+</html>
