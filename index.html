@@ -105,7 +105,7 @@ var onupdate = function(data){
 
 function smurf(){
 	$.ajax({
-		url: 'index.cgi?ajax=1',
+		url: 'ajax.cgi?method=cycle',
 		success: onupdate,
 	})	
 }

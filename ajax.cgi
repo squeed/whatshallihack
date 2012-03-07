@@ -11,10 +11,6 @@ sys.path.append('./lib')
 
 import wordlist 
 
-from mako.template import Template
-from mako.lookup import TemplateLookup
-
-_lookup = TemplateLookup(directories = ['template',])
 
 
 def _pick(l):
@@ -65,20 +61,12 @@ def ajax():
 	print json.dumps(data)
 
 
-def index():
-	print "Content-type: text/html\n"
-	print _lookup.get_template('index.html').render()
-
 def getbg():
 	choices = glob.glob('static/hackbg*')
 	return _pick(choices)
 
 def main():
-	fs = cgi.FieldStorage()
-	if 'ajax' in fs:
-		ajax()
-	else:
-		index()
+	ajax()
 
 
 if __name__ == '__main__':
