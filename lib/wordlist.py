@@ -2,11 +2,6 @@ INTRO = [
 	"I'm going to hack",
 ]
 
-BRIDGE = [
-	"an",
-	"some",
-]
-
 SOCIOPOLITICAL =  [
 	'open-source',
 	'free culture',

@@ -1,44 +1,85 @@
 #!/usr/bin/python
 
+import cgi
+import glob
 import random
 import sys
+import simplejson as json
+
+sys.path.append('./lib')
 
 
 import wordlist 
 
 from mako.template import Template
+from mako.lookup import TemplateLookup
+
+_lookup = TemplateLookup(directories = ['template',])
 
 
 def _pick(l):
 	return l[random.randrange(len(l))]
 
 def sentence():
-	phrase = []
-	plural = False
-
+	hackwords = []
 	item = _pick(wordlist.ITEM)
 
 	if isinstance(item, tuple):
 		plural = item[1]
 		item = item[0]
-	
-	phrase.append(_pick(wordlist.INTRO))
-
-	if plural:
-		phrase.append(_pick(wordlist.BRIDGE))
 	else:
-		phrase.append('a')
+		plural = False
 	
-	for wlist in wordlist.SOCIOPOLITICAL, wordlist.PHYSICAL, wordlist.ITEM:
-		phrase.append(_pick(wlist))
+	intro = _pick(wordlist.INTRO)
+
+	for wlist in wordlist.SOCIOPOLITICAL, wordlist.PHYSICAL:
+		hackwords.append(_pick(wlist))
+	
+	hackwords.append(item)
 	
 	resp = _pick(wordlist.RESPONSES)
 
-	return " ".join(phrase), resp
+	if plural:
+		intro = "%s some" % intro
+	else:
+		if hackwords[0][0] in ('a', 'e', 'i', 'o', 'u'):
+			intro = "%s an" % intro
+		else:
+			intro = "%s a" % intro
+	return intro, hackwords, resp
+
+def ajax():
+	(intro, hackwords, resp) = sentence()
+
+	phrase = intro + " " + " ".join(hackwords)	
+	
+	data = {
+		'intro': intro,
+		'hackvars': hackwords,
+		'response': resp,
+		'bg': getbg(),
+		'phrase': phrase,
+	}
+	print "Content-type: text/json\n"
+
+	print json.dumps(data)
 
 
+def index():
+	print "Content-type: text/html\n"
+	print _lookup.get_template('index.html').render()
+
+def getbg():
+	choices = glob.glob('static/hackbg*')
+	return _pick(choices)
+
+def main():
+	fs = cgi.FieldStorage()
+	if 'ajax' in fs:
+		ajax()
+	else:
+		index()
 
 
-print "Content-type: text-html\n\n"
-
-print sentence()[0]
+if __name__ == '__main__':
+	main()
