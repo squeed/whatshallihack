@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+	<title>What Shall I Hack?</title>
 <style type="text/css">
 body{
 	background-color:#ffba4b;
@@ -30,12 +31,12 @@ div.hacktext{
 	font-size: 1em;
 }
 div.responsetext {
-	width: 100px;
-	height: 100px;
+	width: 110px;
+	height: 110px;
 	position:relative;
-	left: 160px;
-	top: 110px;
-	font-size: .7em;
+	left: 150px;
+	top: 100px;
+	font-size: .9em;
 }
 ul.hackvars{
 	font-size:2em;
@@ -53,16 +54,23 @@ div.button{
 	font-size:.7em;
 }
 div.nextbutton {
-	top:180px;
+	top:170px;
 	left:-2px;
 }
 div.tweetbutton{
-	top:210px;
+	top:200px;
 	left:-5px;
 }
 div.button a{
 	text-decoration:none;
 	color:#000;
+}
+span.authors{
+	font-size: .5em;
+	padding: 10px;
+}
+span.authors a{
+	text-decoration:none;
 }
 </style>
 
@@ -70,6 +78,8 @@ div.button a{
 
 <script type=text/javascript>
 var onupdate = function(data){	
+	
+	
 	targets = ['intro', 'response'];
 	for (var i =0; i < targets.length; i+= 1){
 		target = targets[i];
@@ -83,11 +93,11 @@ var onupdate = function(data){
 	}
 	
 	var tweet_components = {
-		'hashtags': "burner",
+		'hashtags': "hacker",
 		'original_referer': 'http://www.code.caseyc.net/whatshallihack/',
 		'source': 'tweetbutton',
-		'text': data['phrase'] + ". What will you hack next?",
-		'url': 'http://www.code.caseyc.net/whatshallihack/'
+		'text': data['phrase'] + ". What will you hack?",
+		'url': 'http://www.whatshallihack.com/'
 	}
 
 	var base_url = 'https://twitter.com/intent/tweet?';
@@ -143,6 +153,7 @@ $(document).ready(smurf);
 				
 			</div>
 		</div>
+	<span class="authors">by <a href="http://www.caseyc.net">Casey</a> and <a href="http://www.mollyclare.com">Molly</a>. <a href="http://github.com/squeed/whatshallihack">Source here</a>.</span>
 	</div>
 	<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
 
