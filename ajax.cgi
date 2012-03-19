@@ -14,7 +14,7 @@ import wordlist
 
 
 def _pick(l):
-	return l[random.randrange(len(l))]
+	return random.choice(l)
 
 def sentence():
 	hackwords = []
