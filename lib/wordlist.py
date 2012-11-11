@@ -34,6 +34,7 @@ SOCIOPOLITICAL =  [
 	'all-natural',
 	'hyperlocal',
 	'crowdsourced',
+'single-origin',
 	'sustainable',
 	'military-inspired',
 	'post-apocalyptic',
