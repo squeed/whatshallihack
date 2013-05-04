@@ -17,7 +17,7 @@ SOCIOPOLITICAL =  [
 	'artisanal',
 	'ethical',
 	'handcrafted',
-	'microbrewed',
+	'small-batch',
 	'fair trade',
 	'sex-positive',
 	'kink-friendly',
@@ -50,7 +50,8 @@ SOCIOPOLITICAL =  [
     'cypherpunk',
     'irony-free',
     'anti-censorship',
-    'urban'
+    'urban',
+    'remixable',
 ]
 
 PHYSICAL = [
@@ -155,17 +156,19 @@ ITEM = [
 'spinning wheel',
 'litterbox',
 'wheelchair',
-'architecture',
+('architecture', True),
 'mustache',
 'graphic novel',
 'ham radio',
 'food truck',
 'marijuana vaporizer',
 'green roof',
-'emoji',
+('emoji', True),
 'microcontroller',
-'kombucha',
-'operating system'
+('kombucha', True),
+'operating system',
+'quadcopter',
+'bidet',
 ]
 
 RESPONSES = [
@@ -189,7 +192,8 @@ RESPONSES = [
 "That'll show Washington.",
 "Is it on Kickstarter yet?",
 "I had the same idea last year!",
-"Put a bird on it!"
+"Put a bird on it!",
+"Are you selling the kit?",
 ]
 
 
