@@ -34,12 +34,23 @@ SOCIOPOLITICAL =  [
 	'all-natural',
 	'hyperlocal',
 	'crowdsourced',
-'single-origin',
+    'single-origin',
 	'sustainable',
 	'military-inspired',
 	'post-apocalyptic',
 	'minimalist',
-	'participatory'
+	'participatory',
+    'futurist',
+    'polyphasic',
+    'no-waste',
+    'upcycled',
+    'non-binary',
+    'human-powered',
+    'hand-harvested',
+    'cypherpunk',
+    'irony-free',
+    'anti-censorship',
+    'urban'
 ]
 
 PHYSICAL = [
@@ -86,7 +97,11 @@ PHYSICAL = [
 'pressure-sensitive',
 'remote-controlled',
 'pocket-sized',
-'collapsible'
+'collapsible',
+'cat hair',
+'screenprinted',
+'greywater',
+'brain-controlled'
 ]
 
 ITEM = [
@@ -137,6 +152,20 @@ ITEM = [
 'ukulele',
 'bow tie',
 'camera',
+'spinning wheel',
+'litterbox',
+'wheelchair',
+'architecture',
+'mustache',
+'graphic novel',
+'ham radio',
+'food truck',
+'marijuana vaporizer',
+'green roof',
+'emoji',
+'microcontroller',
+'kombucha',
+'operating system'
 ]
 
 RESPONSES = [
@@ -159,6 +188,8 @@ RESPONSES = [
 "Me too!",
 "That'll show Washington.",
 "Is it on Kickstarter yet?",
+"I had the same idea last year!",
+"Put a bird on it!"
 ]
 
 
